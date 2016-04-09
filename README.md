@@ -1,65 +1,52 @@
-# huoliduo_docker
-Docker config for huoliduo stuff
+# huoliduo
 
-Now let's get this shit started
+This was a personal proyect whitch didn't take off.
+So the code is now public.
 
-We will use docker compose.
-(install docker compose :v https://docs.docker.com/compose/install/ )
-Just run:
+Here you can find all the backend to run the proyect, all the private keys are missing, there will be no way to dowload the fronend.
 
+I uses docker compose to deploy the infrastructure.
 
-For dev:
+I had a developement and production environement.
+
+On the production one the static files were served from the 'frontend/static_files/huoliduo' directory.
+
+On the devloppement environemet, the docker image git clonned the frontend repo and served it.
+
+# How to run
+
+###For devloppement:
 
 git clone or paste your repo
 
 - git clone 
-	git clone https://github.com/vplotton/perfectFood.git ./frontend/static_files/huoliduo
-	Yeah the directory must be called huoliduo !
+	git clone https://github.com/yourusername/something.git ./frontend/static_files/huoliduo
+	The destination directory must be called huoliduo !
 
-- copy
-	go to ./frontend/static_files/ create a directory called huoliduo
-	you shoud have ./frontend/static_files/huoliduo/app and ./frontend/static_files/huoliduo/bower
-	Check it good plz !!!
+- run docker-composer
+	docker-compose -f docker-compose.yml up
 
+### For production:
 
-Then run this:
-docker-compose -f docker-compose.yml up
+- just run docker-compose
+	docker-compose -f production.yml up
 
-For prod run:
+### How to connect ?
 
-docker-compose -f production.yml up
-(That's it no more touching)
+Now that everything is running you should be able to look the app.
 
+http://127.0.0.1/ Shoud go to the app # NOT ANYMORE 
 
+http://127.0.0.1:81/admin/index.html Shoud go to the backend manager
 
-Everything should be runing 
-
-http://127.0.0.1/ Shoud go to the app
-
-http://127.0.0.1:81/admin/index.html Shoud go to the web admin page
-
-ATENTION: ssl is activated by default in localhost you will have errors !
+ATENTION: ssl is activated by default, When connecting buy localhost the certification will be invalid.
 
 
-Troubleshoting 
-
-If the api is not working change the host on this file
-
-	- frontend/static_files/scripts/models/Order.js
-
-Arround line 22 - 26 
-
-
-#########################################################
-#														#
-#			How to make an update on production 		#
-#				(To test)								#
-#########################################################
-
+# How to update the production files.
 
 Example we want to run the newest version of the webapp
 
-while everything is runing normaly we run:
+while everything is runing normaly, we run:
 	- docker-compose -f production.yml build --no-cache volume_github
 	- docker-compose -f production.yml rm volume_github
 	- docker-compose -f production.yml up --no-deps -d volume_github
