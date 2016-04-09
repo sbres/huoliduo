@@ -1,0 +1,107 @@
+<div ng-swipe-left="$state.go('home5');" ng-swipe-right="$state.go('home3');" style="height:100%;"
+          ng-class="{disabled: form.name.$invalid || form.address1.$invalid || form.address2.$invalid || form.address3.$invalid
+                         || form.name.$pristine || form.address1.$pristine || form.address2.$pristine || form.address3.$pristine}">
+
+<div class="col-md-1 col-xs-1"></div>
+<div class="col-md-10 col-xs-10">
+        <form id="form" name="form">
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-md-12 col-xs-12">
+                        <input placeholder="name" id="nameInput" type="text" class="textPlaceholder col-md-12 col-xs-12"
+                                ng-model="profile.name" />
+                    </div>
+                </div>
+                <div class="col-md-10 col-xs-10 separation-line"></div><div class="col-md-2 col-xs-2"></div>
+                <div class="row">
+                    <div class="col-md-12 col-xs-12">
+                        <input placeholder="address1" id="addressInput1" type="text" class="textPlaceholder col-md-12 col-xs-12"
+                                ng-model="profile.address1" />
+                    </div>
+                </div>
+                <div class="col-md-10 col-xs-10 separation-line"></div><div class="col-md-2 col-xs-2"></div>
+                <div class="row">
+                    <div class="col-md-12 col-xs-12">
+                        <input placeholder="address2" id="addressInput2" type="text" class="textPlaceholder col-md-12 col-xs-12" 
+                                ng-model="profile.address2" />
+                    </div>
+                </div>
+                <div class="col-md-10 col-xs-10 separation-line"></div><div class="col-md-2 col-xs-2"></div>
+                <div class="row">
+                    <div class="col-md-12 col-xs-12">
+                        <input placeholder="address3" id="addressInput3" type="text" class="textPlaceholder col-md-12 col-xs-12" 
+                                ng-model="profile.address3" />
+                    </div>
+                </div>
+            </div>
+        </form>
+</div>
+<div class="col-md-1 col-xs-1"></div>
+<!-- <div class="">
+    <button class="btn btn-link" ng-click="clearData()">
+        <i class="material-icons md-normal-chevron md-color-chevron">chevron_right</i>
+    </button>
+</div> -->
+<div class="col-md-2 col-xs-2"></div>
+<div class="center-button">
+  <a ui-sref="home3">
+    <button class="btn btn-link" ng-click="update()"
+            ng-class="{disabled: form.age.$invalid || form.weight.$invalid || form.height.$invalid}">
+        <i class="material-icons md-normal-chevron md-color-chevron">chevron_right</i>
+    </button>
+  </a>
+</div>
+
+<!-- v0.1.2 -->
+<!--
+<section class="container" style="height:90vh; width:100vw;">
+  <div style="height:10vh;"></div>
+    <form class="form-horizontal" name="form">
+      <div class="row form-group control-group lineDiv">
+        <label for="name"></label>
+        <input type="text" id="name" placeholder="name" name="name" ng-model="profile.name" required
+          ng-class="{'well well-material-red inputField ': form.name.$invalid && form.name.$dirty
+          , 'well well-material-blue inputField': !(form.name.$invalid && form.name.$dirty)}">
+      </div>
+            <div class="separationLine"></div>
+        <div class="row form-group control-group lineDiv">
+        <label for="address1"></label>
+        <input type="text" id="address1" placeholder="address1" name="address 1" ng-model="profile.address1"  required
+          ng-class="{'well well-material-red inputField ': form.address1.$invalid && form.address1.$dirty
+          , 'well well-material-blue inputField': !(form.address1.$invalid && form.address1.$dirty)}">
+      </div>
+            <div class="separationLine"></div>
+        <div class="row form-group control-group lineDiv">
+        <label for="address2"></label>
+        <input type="text" id="address2" placeholder="address2" name="address 2" ng-model="profile.address2"
+          ng-class="{'well well-material-red inputField ': form.address2.$invalid && form.address2.$dirty
+          , 'well well-material-blue inputField': !(form.address2.$invalid && form.address2.$dirty)}">
+      </div>
+            <div class="separationLine"></div>
+        <div class="row form-group control-group lineDiv">
+        <label for="address3"></label>
+        <input type="text" id="address3" placeholder="address3" name="address 3" ng-model="profile.address3"
+          ng-class="{'well well-material-red inputField ': form.address3.$invalid && form.address3.$dirty
+          , 'well well-material-blue inputField': !(form.address3.$invalid && form.address3.$dirty)}">
+      </div>
+    </form>
+
+    Name:    {{profile.name}}   </br>
+    Address 1: {{profile.address1}}</br>
+    Address 2: {{profile.address2}}</br>
+    Address 3: {{profile.address3}}   </br>
+
+</section>
+<section style="address2:10vh;">
+  <div class="buttonContainer">
+    <a ui-sref="home5">
+        <button class="col-xs-5 btn btn-link button-placement" ng-click="update()"
+          ng-class="{disabled: form.name.$invalid || form.address1.$invalid || form.address2.$invalid || form.address3.$invalid
+                    || ( form.name.$invalid && form.name.$pristine )
+                    || ( form.address1.$invalid && form.address1.$pristine )}">
+          <i class="material-icons md-normal md-color">chevron_right</i>
+        </button>
+      </a>
+  </div>
+</section>
+-->

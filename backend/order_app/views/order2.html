@@ -1,0 +1,48 @@
+<style>
+input[type=range][orient=vertical]
+{
+    writing-mode: bt-lr; /* IE */
+    -webkit-appearance: slider-vertical; /* WebKit */
+    width: 8px;
+    height: 175px;
+    padding: 0 5px;
+}
+</style>
+<section class="container" style="height:90vh; width:100vw;">
+  <div style="height:10vh;"></div>
+
+<div class="row">
+    <div class="col-md-4">
+        <div>
+    <input type="range" ng-model="order.activity" class="well well-material-orange" min="0" max="2" step="1" orient="vertical" style="height:30vh; float:right;" />
+        </div>
+    </div>
+    <div class="col-md-8">
+        <div class="row">
+            <div class="col-md-8">
+                <div class="" style="height:14vh;"><span>less active</span></div>
+            </div>
+            <div class="col-md-8">
+                <div class="" style="height:14vh;"><span>active</span></div>
+            </div>
+            <div class="col-md-8">
+                <div class="" style="height:14vh;"><span>very active</span></div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+</section>
+<section style="address2:10vh;">
+  <div class="buttonContainer">
+    <a ui-sref="order3">
+        <button class="col-xs-5 btn btn-link button-placement" ng-click="update()"
+          ng-class="{disabled: form.name.$invalid || form.address1.$invalid || form.address2.$invalid || form.address3.$invalid
+                    || ( form.name.$invalid && form.name.$pristine )
+                    || ( form.address1.$invalid && form.address1.$pristine )}">
+          <i class="material-icons md-normal md-color">chevron_right</i>
+        </button>
+      </a>
+  </div>
+</section>

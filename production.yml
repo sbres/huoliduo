@@ -1,0 +1,46 @@
+backend:
+    restart: always
+    build: backend
+    volumes: 
+        - ./backend:/work/backend
+    #Change ports to expose becose we are using nginx
+    expose:
+        - "8000"
+    working_dir: /work/backend
+    command: gunicorn main:app \
+                      --name "holido_api" \
+                      --workers 2 \
+                      --bind 0.0.0.0:8000
+    hostname: docker_python
+    links:
+        - mongodb
+
+volume_github:
+    build: frontend/docker_git
+    volumes:
+        - /huoliduo
+
+mongodb:
+    restart: always
+    build: db_mongo
+    expose:
+        - "27017"
+    ports:
+        - "27017:27017"
+    environment:
+        - MONGODB_PASS=dev
+        - AUTH=yes
+
+nginx:
+    restart: always
+    build: frontend
+    volumes:
+        - ./frontend/.htpasswd:/etc/nginx/.htpasswd
+    volumes_from:
+        - volume_github:ro
+    ports:
+        - "80:80"
+        - "81:81"
+        - "443:443"
+    links:
+        - backend

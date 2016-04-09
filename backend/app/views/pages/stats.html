@@ -1,0 +1,110 @@
+<div class="container-fluid" ng-init="init()">
+	<div class="row">
+		<div class="col-lg-10 col-sm-10">
+			<h1 class="page-header">Welcome</h1>
+
+
+		</div>
+		<div class="col-lg-2 col-sm-2" ng-click="refresh()">
+			<h1 class="page-header">Refresh
+				<!--<img class="cat" src="images/cat.png" height="60px">-->
+			</h1>
+		</div>
+		<!-- /.col-lg-12 -->
+	</div>
+	<div class="alert alert-danger alert-dismissable" ng-repeat="error in data.errors">
+		<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+		{{error.error}}
+	</div>
+	<!-- /.row -->
+
+    <div class="row">
+        <stats number="{{data.getregistered}}" comments="Users !" colour="primary" type="user"></stats>
+        <stats number="{{data.getactive}}" comments="Active Users, the last 24h" colour="primary" type="child"></stats>
+        <stats number="{{data.shoshsent}}" comments="Shosh sent!" colour="pink" type="video-camera"></stats>
+        <stats number="{{data.videoviews}}" comments="Number of video reproductions." colour="red" type="play-circle"></stats>
+
+    </div>
+
+
+	<div class="row">
+		<div class="col-lg-6 col-sm-12" id="history-user">
+			<highchart id="chart1" config="chartUserIncriptionConfig"></highchart>
+		</div>
+
+
+
+	</div>
+	<div class="row">
+		<div class="col-lg-6 col-sm-12 test" id="app-open-user">
+			<highchart id="chart5" config="OpenAppPerUser"></highchart>
+		</div>
+
+		<div class="col-lg-6 col-sm-12" id="day-usage">
+			<highchart id="chart2" config="videoday"></highchart>
+		</div>
+
+	</div>
+	<div class="row">
+		<div class="col-lg-6 col-sm-12" id="open-app-time">
+			<highchart id="chart3" config="openTimeConfig"></highchart>
+		</div>
+		<div class="col-lg-6 col-sm-12" id="open-app-time-persesion">
+			<highchart id="chart4" config="openTimeConfigSession"></highchart>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-lg-6 col-sm-12" id="erros-app">
+			<highchart id="chart6" config="AppErros"></highchart>
+		</div>
+		<div class="col-lg-6 col-sm-12" id="shosh-camera">
+			<highchart id="chart10" config="getshoshcamera"></highchart>
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="col-lg-6 col-sm-12 test" id="opening-hour">
+			<highchart id="chart11" config="OpenAppHour"></highchart>
+		</div>
+
+		<div class="col-lg-6 col-sm-12 test" id="opening-days">
+			<highchart id="chart12" config="OpenAppDay"></highchart>
+		</div>
+	</div>
+
+
+	<div class="row">
+		<div class="col-lg-6 col-sm-12 test" id="last-open">
+
+			<highchart id="chart13" config="SinceLastOpening"></highchart>
+
+			<div class="form-group input-group">
+				<input type="date" class="form-control" ng-model="last_open_hour" value="{{last_open_hour}}">
+				<span class="input-group-btn" ng-click="SinceLastOpening_refresh()">
+					<button class="btn btn-default" type="button"><i class="fa fa-refresh"></i>
+					</button>
+				</span>
+			</div>
+		</div>
+
+		<!--<div class="col-lg-6 col-sm-12 test" id="opening-days">
+			<highchart id="chart14" config="OpenAppDay"></highchart>
+		</div>-->
+	</div>
+
+	<div class="row">
+		<div class="col-lg-6 col-sm-12" id="video-views">
+			<highchart id="chart14" config="chartVideoDailyViews"></highchart>
+		</div>
+
+		<div class="col-lg-6 col-sm-12" id="user-v">
+			<highchart id="chart15" config="userContacts"></highchart>
+		</div>
+
+
+
+	</div>
+
+
+
+</div>

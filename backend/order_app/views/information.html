@@ -1,0 +1,213 @@
+<div ng-swipe-left="$state.go('home3');" style="height:100%;"
+            ng-class="{disabled: form.age.$invalid || form.weight.$invalid || form.height.$invalid}">
+
+
+<div class="col-md-2 col-xs-2"></div>
+<div class="col-md-8 col-xs-8">
+        <form id="form" name="form">
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-md-3 col-xs-3"></div>
+                    <div class="col-md-9 col-xs-9">
+                        <input placeholder="age" id="ageInput" type="number" min="18" max="130" class="textPlaceholder"
+                                ng-model="profile.age" /><span ng-hide="profile.age < 18" style="margin-left:-5vw;">years</span>
+                    </div>
+                </div>
+                <div class="col-md-10 col-xs-10 separation-line"></div><div class="col-md-2 col-xs-2"></div>
+                <div class="row">
+                    <div class="col-md-3 col-xs-3"></div>
+                    <div class="col-md-9 col-xs-9">
+                        <input placeholder="weight" id="weightInput" type="number" min="30" max="250" class="textPlaceholder"
+                                ng-model="profile.weight" /><span ng-hide="profile.weight < 30" style="margin-left:-5vw;">kg</span>
+                    </div>
+                </div>
+                <div class="col-md-10 col-xs-10 separation-line"></div><div class="col-md-2 col-xs-2"></div>
+                <div class="row">
+                    <div class="col-md-3 col-xs-3"></div>
+                    <div class="col-md-9 col-xs-9">
+                        <input placeholder="height" id="heightInput" type="number" min="30" max="250" class="textPlaceholder" 
+                                ng-model="profile.height" /><span ng-hide="profile.height < 30" style="margin-left:-5vw;">cm</span>
+                    </div>
+                </div>
+                <div class="col-md-10 col-xs-10 separation-line"></div><div class="col-md-2 col-xs-2"></div>
+                    <div class="col-md-4 col-xs-4"></div>
+                <div class="row" style="padding-top:2vh;">
+                    <div class="col-md-2 col-xs-2"></div>
+                    <div class="col-md-10 col-xs-10">
+                        <div class="togglebutton togglebutton-material-blue-grey">
+                          <img src="../gender-male.png" style="margin-right:3vw;" />
+                          <label class="">
+                            <input type="checkbox" ng-model="profile.sex" ng-true-value="'Female'" ng-false-value="'Male'">
+                          </label>
+                          <img src="../gender-female.png"/>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    <div class="col-md-4 col-xs-2"></div>
+</div>
+<div class="col-md-2 col-xs-2"></div>
+<!-- <div class="">
+    <button class="btn btn-link" ng-click="clearData()">
+        <i class="material-icons md-normal-chevron md-color-chevron">chevron_right</i>
+    </button>
+</div> -->
+<div class="center-button">
+  <a ui-sref="home3">
+    <button class="btn btn-link" ng-click="update()"
+            ng-class="{disabled: form.age.$invalid || form.weight.$invalid || form.height.$invalid}">
+        <i class="material-icons md-normal-chevron md-color-chevron">chevron_right</i>
+    </button>
+  </a>
+</div>
+
+
+<!-- v0.1.2 -->
+<!--
+<div ng-swipe-left="$state.go('home3');" ng-swipe-right="$state.go('home2');" style="height:100%;"
+      ng-class="{disabled: form.age.$invalid || form.weight.$invalid || form.height.$invalid
+                      || ( form.age.$invalid && form.age.$pristine )
+                      || ( form.weight.$invalid && form.weight.$pristine )
+                      || ( form.height.$invalid && form.height.$pristine )}">
+
+<section class="container" style="height:90vh; width:100vw;">
+  <div style="height:10vh;"></div>
+    <form class="form-horizontal" name="form">
+      <div class="row form-group control-group lineDiv">
+        <label for="age"></label>
+        <input type="number" id="age" placeholder="age" name="age" ng-model="profile.age" min="18" max="120" required
+          ng-class="{'well well-material-red inputField ': form.age.$invalid && form.age.$dirty
+          , 'well well-material-blue inputField': !(form.age.$invalid && form.age.$dirty)}">
+      </div>
+            <div class="separationLine"></div>
+        <div class="row form-group control-group lineDiv">
+        <label for="weight"></label>
+        <input type="number" id="weight" placeholder="weight" name="weight" ng-model="profile.weight" min="0" max="300" required
+          ng-class="{'well well-material-red inputField ': form.weight.$invalid && form.weight.$dirty
+          , 'well well-material-blue inputField': !(form.weight.$invalid && form.weight.$dirty)}">
+      </div>
+            <div class="separationLine"></div>
+        <div class="row form-group control-group lineDiv">
+        <label for="height"></label>
+        <input type="number" id="height" placeholder="height" name="height" ng-model="profile.height" min="0" max="300" required
+          ng-class="{'well well-material-red inputField ': form.height.$invalid && form.height.$dirty
+          , 'well well-material-blue inputField': !(form.height.$invalid && form.height.$dirty)}">
+      </div>
+            <div class="separationLine"></div>
+        <div class="form-group lineDiv">
+            <div class="togglebutton togglebutton-material-pink">
+                <label class="label-hide inputField">
+                  <img src="../gender-male.png" />
+                  <input type="checkbox" ng-model="profile.sex" ng-true-value="'Female'" ng-false-value="'Male'">
+                  <img src="../gender-female.png"/>
+                </label>
+              </div>
+        </div>
+    </form>
+
+    Age:    {{profile.age}}   </br>
+    Weight: {{profile.weight}}</br>
+    Height: {{profile.height}}</br>
+    Sex:    {{profile.sex}}   </br>
+
+</section>
+<section style="height:10vh;">
+  <div class="buttonContainer">
+    <a ui-sref="home3">
+        <button class="col-xs-5 btn btn-link button-placement" ng-click="update()"
+                ng-class="{disabled: form.age.$invalid || form.weight.$invalid || form.height.$invalid
+                      || ( form.age.$invalid && form.age.$pristine)
+                      || ( form.weight.$invalid && form.weight.$pristine)
+                      || ( form.height.$invalid && form.height.$pristine)}">
+          <i class="material-icons md-normal md-color">chevron_right</i>
+        </button>
+      </a>
+  </div>
+</section>
+-->
+
+
+<!-- v0.1.1 -->
+    <!-- 
+    <form class="form-horizontal" name="myForm">
+    <fieldset>
+
+        <div name="myForm" class="form-group control-group lineDiv"  ng-class="{error: myForm.ageInput.$invalid}">
+             <label for="ageInput">Age: </label>
+            <input id="ageInput" type="number" ng-model="profile.age"
+            ng-class="{error: myForm.name.$invalid}"
+                  min="16" max="120">
+
+            <label for="ageInput" class="label-hide inputField"> Age</label>
+            <input id="ageInput" type="number" class="label-over form-control btn-link inputField"
+                ng-model="profile.age" min="0" max="150" data-hint="in years.">
+
+            <div class="separationLine"></div>
+        </div>
+        <div class="form-group lineDiv">
+            <label for="weightInput">Weight: </label>
+            <input id="weightInput" type="number" ng-model="profile.weight"
+              class="well well-material-blue inputField">
+
+            <label for="weightInput" class="label-hide inputField">Weight</label>
+            <input id="weightInput" type="number" class="label-over form-control btn-link inputField"
+                  ng-model="profile.weight" min="0" max="300" data-hint="in kg.">
+
+            <div class="separationLine"></div>
+        </div>
+        <div class="form-group lineDiv">
+            <label for="heightInput">Height: </label>
+            <input id="heightInput" type="number" ng-model="profile.height"
+              class="well well-material-blue inputField">
+
+            <label for="heightInput" class="label-hide inputField">Height</label>
+             <input id="heightInput" type="text" class="label-over form-control btn-link inputField"
+                  ng-model="profile.height" data-hint="in cm.">
+
+            <div class="separationLine"></div>
+        </div>
+      </fieldset>
+    </form>
+ -->
+
+<!-- test form 1 -->
+<!-- 
+  <form class="form-horizontal">
+    <fieldset>
+        <div class="form-group mLine well-material-blue-grey-200 well-sm">
+            <label for="inputAge" class="col-lg-2 control-label mField mLabel">Age</label>
+            <div class="col-lg-8 mField mInput center">
+              <select class="form-control center btn-link btn-black" placeholder="age">
+                <option value="18-51">18-50</option>
+                <option value="51+">51+</option>
+              </select>
+            </div>
+        </div>
+        <div class="form-group mLine well-material-blue-grey-200 well-sm">
+            <label for="inputSex" class="col-lg-2 control-label mField mLabel">Sex</label>
+            <div class="col-lg-8 mField mInput center">
+              <select class="form-control center btn-link" placeholder="age">
+                <option value="M">M</option>
+                <option value="F">F</option>
+              </select>
+            </div>
+        </div>
+
+        <div class="form-group mLine well-material-blue-grey well-sm">
+            <label for="inputHeight" class="col-lg-2 control-label mField mLabel">Height</label>
+            <div class="col-lg-8 mField mInput center">
+              <input type="number"
+                class="form-control btn-link" data-toggle="validator" mInput"height" data-hint="in cm." ng-model="InfoCtrl">
+          </div>
+        </div>
+        <div id="weightDiv" class="form-group mLine well-material-blue-grey well-sm">
+            <label for="inputWeight" class="col-lg-2 control-label mField mLabel">Weight</label>
+            <div class="col-lg-8 mField mInput center">
+              <input name="weightInput" type="number"class="form-control btn-link"
+                ng-model="weight" min="0" max="300" data-hint="in kg. And we won't tell anyone ;)">
+          </div>
+        </div>
+    </fieldset>
+  </form>
+   -->

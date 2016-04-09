@@ -1,0 +1,144 @@
+<div ng-swipe-left="$state.go('home3');" style="height:100%;"
+            ng-class="{disabled: form.age.$invalid || form.weight.$invalid || form.height.$invalid}">
+
+<div class="col-md-12 col-xs-12" style="height:5vh;"></div>
+<div class="col-md-12 col-xs-12" style="height:10vh;">
+  <p class="text-center text-notice">
+    How many shakes do you need?
+  </p>
+</div>
+
+<div class="col-md-1 col-xs-1"></div>
+<div class="col-md-10 col-xs-10">
+  <div class="row">
+    <div class="col-md-1 col-xs-1">
+      <img ng-show="!shake1" ng-src="../shake.png" />
+      <img ng-show="shake1" ng-src="../shake-white.png" />
+    </div>
+    <div class="col-md-2 col-xs-2"></div>
+    <div class="col-md-1 col-xs-1">
+      <img ng-show="!shake2" ng-src="../shake.png" />
+      <img ng-show="shake2" ng-src="../shake-white.png" />
+    </div>
+    <div class="col-md-2 col-xs-2"></div>
+    <div class="col-md-1 col-xs-1">
+      <img ng-show="!shake3" ng-src="../shake.png" />
+      <img ng-show="shake3" ng-src="../shake-white.png" />
+    </div>
+    <div class="col-md-2 col-xs-2"></div>
+    <div class="col-md-1 col-xs-1">
+      <img ng-show="!shake4" ng-src="../shake.png" />
+      <img ng-show="shake4" ng-src="../shake-white.png" />
+    </div>
+    <div class="col-md-2 col-xs-2"></div>
+  </div>
+  <div class="row">
+    <div class="col-md-1 col-xs-1">
+      <div class="row checkbox checkbox-primary checkbox-padding">
+        <label> <input type="checkbox" ng-checked="shake1" ng-click="updateShakes(1)"> </label>
+      </div>
+    </div>
+    <div class="col-md-2 col-xs-2"></div>
+    <div class="col-md-1 col-xs-1">
+      <div class="row checkbox checkbox-primary checkbox-padding">
+        <label> <input type="checkbox" ng-checked="shake2" ng-click="updateShakes(2)"> </label>
+      </div>
+    </div>
+    <div class="col-md-2 col-xs-2"></div>
+    <div class="col-md-1 col-xs-1">
+      <div class="row checkbox checkbox-primary checkbox-padding">
+        <label> <input type="checkbox" ng-checked="shake3" ng-click="updateShakes(3)"> </label>
+      </div>
+    </div>
+    <div class="col-md-2 col-xs-2"></div>
+    <div class="col-md-1 col-xs-1">
+      <div class="row checkbox checkbox-primary checkbox-padding">
+        <label> <input type="checkbox" ng-checked="shake4" ng-click="updateShakes(4)"> </label>
+      </div>
+    </div>
+    <div class="col-md-2 col-xs-2"></div>
+  </div>
+</div>
+<div class="col-md-1 col-xs-1"></div>
+
+<div class="center-button">
+  <a ui-sref="order2">
+    <button class="btn btn-link" ng-click="update()">
+        <i class="material-icons md-normal-chevron md-color-chevron">chevron_right</i>
+    </button>
+  </a>
+</div>
+
+
+<!-- v0.1.2 -->
+<!--
+<section class="container" style="height:90vh; width:100vw;">
+  <div style="height:10vh;"></div>
+
+  <div class="row">
+    <div class="col-md-3 col-xs-3"></div>
+    <div class="col-md-1 col-xs-1">
+      <img ng-show="!shake1" ng-src="../shake-grey.png" />
+      <img ng-show="shake1" ng-src="../shake.png" />
+    </div>
+    <div class="col-md-1 col-xs-1">
+      <img ng-show="!shake2" ng-src="../shake-grey.png" />
+      <img ng-show="shake2" ng-src="../shake.png" />
+    </div>
+    <div class="col-md-1 col-xs-1">
+      <img ng-show="!shake3" ng-src="../shake-grey.png" />
+      <img ng-show="shake3" ng-src="../shake.png" />
+    </div>
+    <div class="col-md-1 col-xs-1">
+      <img ng-show="!shake4" ng-src="../shake-grey.png" />
+      <img ng-show="shake4" ng-src="../shake.png" />
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-3 col-xs-12"></div>
+    <div class="col-md-1 col-xs-1">
+      <div class="row checkbox checkbox-primary" style="padding-left:0.5vw;">
+        <label> <input checked="" type="checkbox" ng-click="shake1 = !shake1"> </label>
+      </div>
+    </div>
+    <div class="col-md-1 col-xs-1">
+      <div class="row checkbox checkbox-primary" style="padding-left:0.5vw;">
+        <label> <input ng-disabled="!shake1" type="checkbox" ng-click="shake2 = !shake2"> </label>
+      </div>
+    </div>
+    <div class="col-md-1 col-xs-1">
+      <div class="row checkbox checkbox-primary" style="padding-left:0.5vw;">
+        <label> <input ng-disabled="!shake2" type="checkbox" ng-click="shake3 = !shake3"> </label>
+      </div>
+    </div>
+    <div class="col-md-1 col-xs-1">
+      <div class="row checkbox checkbox-primary" style="padding-left:0.5vw;">
+        <label> <input ng-disabled="!shake3" type="checkbox" ng-click="shake4 = !shake4"> </label>
+      </div>
+    </div>
+  </div>
+
+</section>
+<section style="address2:10vh;">
+  <div class="buttonContainer">
+    <a ui-sref="order2">
+        <button class="col-xs-5 btn btn-link button-placement" ng-click="update()"
+          ng-class="{disabled: form.name.$invalid || form.address1.$invalid || form.address2.$invalid || form.address3.$invalid
+                    || ( form.name.$invalid && form.name.$pristine )
+                    || ( form.address1.$invalid && form.address1.$pristine )}">
+          <i class="material-icons md-normal md-color">chevron_right</i>
+        </button>
+      </a>
+  </div>
+</section>
+
+-->
+<!-- 
+    <div class="sample">
+      <select class="form-control" placeholder="Your favorite flavor">
+        <option value="Banana">Banana</option>
+        <option value="Chocolate">Chocolate</option>
+        <option value="Green Tea">Green Tea</option>
+      </select>
+    </div>
+-->
